@@ -4,10 +4,19 @@ Modified timing of writes to accomodate SparkCore
 Jim Brower - 
 bulldoglowell@gmail.com
 */
-#include "application.h"
 
 #ifndef LiquidCrystal_I2C_Spark_h
 #define LiquidCrystal_I2C_Spark_h
+
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#include <Print.h>
+#elif defined(SPARK)
+#include "application.h"
+#include <spark_wiring_print.h>
+#endif
+
+#include <inttypes.h>
 
 #define LCD_CLEARDISPLAY 0x01
 #define LCD_RETURNHOME 0x02
