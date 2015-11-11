@@ -26,8 +26,14 @@ bulldoglowell@gmail.com
 // can't assume that its in that state when a sketch starts (and the
 // LiquidCrystal constructor is called).
 
+#if defined(ARDUINO) && ARDUINO >= 100
+#include <Arduino.h>
+#include <Wire.h>
+#elif defined(SPARK)
 #include "application.h"
+#endif
 
+#include <inttypes.h>
 #include "LiquidCrystal_I2C_Spark.h"
 
 
